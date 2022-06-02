@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace KURS
 {
@@ -13,10 +14,14 @@ namespace KURS
         public static double B;
         public static void Get(string f, string eps, string x0)
         {
+            StreamWriter input = new StreamWriter("input.tmp", false);
             pFunc = f;
             E = Convert.ToDouble(eps);
             X = Convert.ToDouble(x0);
-
+            input.WriteLine("function: "+f);
+            input.WriteLine("x0: "+x0);
+            input.WriteLine("epsilon: "+eps);
+            input.Close();
         }//получение данных для решение НЛУ
 
         public static void GetPoint(string n, string a, string b)
@@ -33,7 +38,10 @@ namespace KURS
 
         public double Answer()
         {
-            X= steffensen.Method(X);
+            StreamWriter input = new StreamWriter("input.tmp", true);
+            X = steffensen.Method(X);
+            input.WriteLine("answer: " + X);
+            input.Close();
             return X;
         }//решение НЛУ
 

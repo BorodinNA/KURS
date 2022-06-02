@@ -27,7 +27,6 @@ namespace KURS
                 legend.Text = function.Text;
             }
             catch { MessageBox.Show("Обязателен ввод функции, начального приближения и ε"); }
-
         }//расчет НЛУ
 
         private void button3_Click(object sender, EventArgs e)
@@ -105,11 +104,11 @@ namespace KURS
         private void function_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && (e.KeyChar <= 39 || e.KeyChar >= 46) && number != 47 && number != 94 && number != 120) 
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && (e.KeyChar <= 39 || e.KeyChar >= 46) && number != 47 && number != 94 && (e.KeyChar <= 96 || e.KeyChar >= 123)) 
             {
                 e.Handled = true;
             }
-        }//можно вводить только цифры, клавишу BackSpace, запятую, переменную x и математические символы(кроме =)
+        }//можно вводить только цифры, клавишу BackSpace, запятую, буквы английского алфавита и математические символы(кроме =)
 
         private void number_point_KeyPress(object sender, KeyPressEventArgs e)
         {

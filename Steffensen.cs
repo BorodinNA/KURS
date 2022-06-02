@@ -1,12 +1,12 @@
 ﻿using System;
 using info.lundin.math;
+using System.Collections.Generic;
 
 namespace KURS
 {
     class Steffensen
     {
         static ExpressionParser parser = new ExpressionParser();//переменная для парса строки в функцию
-        
         public static double func(double x)
         {
             parser.Values.Add("x", x);
