@@ -20,15 +20,25 @@ namespace KURS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HEAD.Get(function.Text, epsilon.Text, X0.Text);
-            answer.Text = head.Answer().ToString();
-            legend.Text = function.Text;
+            try
+            {
+                HEAD.Get(function.Text, epsilon.Text, X0.Text);
+                answer.Text = head.Answer().ToString();
+                legend.Text = function.Text;
+            }
+            catch { MessageBox.Show("Обязателен ввод функции, начального приближения и ε"); }
+
         }//расчет НЛУ
 
         private void button3_Click(object sender, EventArgs e)
         {
-            HEAD.GetPoint(number_point.Text, left_border.Text, right_border.Text);
-            Graf();
+            try
+            {
+                HEAD.GetPoint(number_point.Text, left_border.Text, right_border.Text);
+                Graf();
+            }
+            catch { MessageBox.Show("Обязателен ввод количества точек и границ построения графика"); }
+
         }//кнопка строющая график
 
         public void Graf()
@@ -73,5 +83,59 @@ namespace KURS
         {
             zedGraphControl1.SaveAsBitmap();
         }//сохранение графика в виде изображения 
+
+        private void X0_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44 && number != 45) 
+            {
+                e.Handled = true;
+            }
+        }//можно вводить только цифры, клавишу BackSpace, минус и запятую
+
+        private void epsilon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) 
+            {
+                e.Handled = true;
+            }
+        }//можно вводить только цифры, клавишу BackSpace и запятую
+
+        private void function_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && (e.KeyChar <= 39 || e.KeyChar >= 46) && number != 47 && number != 94 && number != 120) 
+            {
+                e.Handled = true;
+            }
+        }//можно вводить только цифры, клавишу BackSpace, запятую, переменную x и математические символы(кроме =)
+
+        private void number_point_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }//можно вводить только цифры, клавишу BackSpace
+
+        private void left_border_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44 && number != 45)
+            {
+                e.Handled = true;
+            }
+        }//можно вводить только цифры, клавишу BackSpace, минус и запятую
+
+        private void right_border_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44 && number != 45)
+            {
+                e.Handled = true;
+            }
+        }//можно вводить только цифры, клавишу BackSpace, минус и запятую
     }
 }

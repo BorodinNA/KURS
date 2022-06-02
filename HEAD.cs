@@ -5,17 +5,18 @@ namespace KURS
     class HEAD
     {
         Steffensen steffensen = new Steffensen();
-        public static string pFunc;
-        public static double E;
-        public static double X;
-        public static int N;
-        public static double A;
-        public static double B;
+        public static string pFunc  ;
+        public static double E ;
+        public static double X ;
+        public static int N = 20;
+        public static double A = -10;
+        public static double B = 10;
         public static void Get(string f, string eps, string x0)
         {
             pFunc = f;
             E = Convert.ToDouble(eps);
             X = Convert.ToDouble(x0);
+
         }//получение данных для решение НЛУ
 
         public static void GetPoint(string n, string a, string b)

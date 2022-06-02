@@ -106,6 +106,7 @@ namespace KURS
             this.function.Name = "function";
             this.function.Size = new System.Drawing.Size(100, 20);
             this.function.TabIndex = 4;
+            this.function.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.function_KeyPress);
             // 
             // X0
             // 
@@ -113,6 +114,7 @@ namespace KURS
             this.X0.Name = "X0";
             this.X0.Size = new System.Drawing.Size(38, 20);
             this.X0.TabIndex = 5;
+            this.X0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.X0_KeyPress);
             // 
             // epsilon
             // 
@@ -120,6 +122,7 @@ namespace KURS
             this.epsilon.Name = "epsilon";
             this.epsilon.Size = new System.Drawing.Size(38, 20);
             this.epsilon.TabIndex = 6;
+            this.epsilon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.epsilon_KeyPress);
             // 
             // answer
             // 
@@ -148,6 +151,7 @@ namespace KURS
             this.number_point.Name = "number_point";
             this.number_point.Size = new System.Drawing.Size(100, 20);
             this.number_point.TabIndex = 9;
+            this.number_point.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.number_point_KeyPress);
             // 
             // left_border
             // 
@@ -155,6 +159,7 @@ namespace KURS
             this.left_border.Name = "left_border";
             this.left_border.Size = new System.Drawing.Size(100, 20);
             this.left_border.TabIndex = 10;
+            this.left_border.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.left_border_KeyPress);
             // 
             // right_border
             // 
@@ -162,6 +167,7 @@ namespace KURS
             this.right_border.Name = "right_border";
             this.right_border.Size = new System.Drawing.Size(100, 20);
             this.right_border.TabIndex = 11;
+            this.right_border.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.right_border_KeyPress);
             // 
             // legend
             // 
