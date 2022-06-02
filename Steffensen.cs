@@ -7,6 +7,7 @@ namespace KURS
     class Steffensen
     {
         static ExpressionParser parser = new ExpressionParser();//переменная для парса строки в функцию
+        public static bool error;//переменная для сбора ошибок
         public static double func(double x)
         {
             parser.Values.Add("x", x);
@@ -25,7 +26,8 @@ namespace KURS
                 X = X0 - func(X0) / (func(func(X0) + X0) / func(X0) - 1);
             }
             while (Math.Abs(X-X0)>HEAD.E);
-
+            if (double.IsNaN(X)) error = true;
+            else error = false;
             return X;
         }//решение НЛУ методом Стеффенсона
 

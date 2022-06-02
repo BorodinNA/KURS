@@ -20,24 +20,29 @@ namespace KURS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            HEAD.Get(function.Text, epsilon.Text, X0.Text);
+            if(HEAD.error == true) MessageBox.Show("Обязателен ввод функции, начального приближения и ε");
+            else 
             {
-                HEAD.Get(function.Text, epsilon.Text, X0.Text);
-                answer.Text = head.Answer().ToString();
-                legend.Text = function.Text;
+                string check = head.Answer().ToString();
+                if (Steffensen.error == true) MessageBox.Show("Начальные условия не подходят");
+                else
+                {
+                    answer.Text = check;
+                    legend.Text = function.Text;
+                }
+
             }
-            catch { MessageBox.Show("Обязателен ввод функции, начального приближения и ε"); }
         }//расчет НЛУ
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
+            HEAD.GetPoint(number_point.Text, left_border.Text, right_border.Text);
+            if (HEAD.error == true) MessageBox.Show("Обязателен ввод количества точек и границ построения графика");
+            else 
             {
-                HEAD.GetPoint(number_point.Text, left_border.Text, right_border.Text);
                 Graf();
             }
-            catch { MessageBox.Show("Обязателен ввод количества точек и границ построения графика"); }
-
         }//кнопка строющая график
 
         public void Graf()
